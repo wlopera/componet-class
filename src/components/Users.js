@@ -11,6 +11,12 @@ class Users extends Component {
     };
   }
 
+  componentDidUpdate() {
+    if (this.props.users.length === 0) {
+      throw new Error("No hay usuarios retornados por el servicio");
+    }
+  }
+
   toggleUsersHandler() {
     this.setState((curState) => {
       return {
